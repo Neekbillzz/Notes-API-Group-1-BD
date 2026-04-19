@@ -34,9 +34,11 @@ This backend provides full CRUD functionality for a Notion-style application. It
 
 3.  **Configure Environment Variables (Create a .env file):**
 
-        PORT=3012
+        PORT=your_port_number
 
-        MONGO_URI=MONGO_URI =mongodb://abidum2001_db_user:MIEiu5wMZDNxfyim@ac-brqijhl-shard-00-00.n2kab3s.mongodb.net:27017,ac-brqijhl-shard-00-01.n2kab3s.mongodb.net:27017,ac-brqijhl-shard-00-02.n2kab3s.mongodb.net:27017/?ssl=true&replicaSet=atlas-ib6109-shard-0&authSource=admin&appName=cluster0
+        MONGO_URI=your_mongodb_connection_string_here
+
+        JWT_SECRET= your_string_secret
 
 4.  **Start the server:**
 
