@@ -21,5 +21,13 @@
   },
   "devDependencies": {
     "nodemon": "^3.1.14"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Neekbillzz/Notes-API-Group-1-BD.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Neekbillzz/Notes-API-Group-1-BD/issues"
+  },
+  "homepage": "https://github.com/Neekbillzz/Notes-API-Group-1-BD#readme"
 }
