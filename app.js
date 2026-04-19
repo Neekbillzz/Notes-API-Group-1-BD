@@ -13,8 +13,8 @@ const PORT = process.env.PORT || 3020;
 
 connectDB();
 
-app.use(express.json());
 app.use(logRequest);
+app.use(express.json());
 app.use(cors());
 app.use("/api/notes", noteRoutes);
 app.use("/api/users", userRoutes);

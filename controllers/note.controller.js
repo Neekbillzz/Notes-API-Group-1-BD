@@ -38,29 +38,29 @@ exports.postNote = async (req, res) => {
 
 // Get all notes
 exports.getAllNotes = async (req, res) => {
-    try {
-        // Build query object
-        let query = { user: req.user.id };
+  try {
+    // Build query object
+    let query = { user: req.user.id };
 
-        // 1. Filtering
-        if (req.query.category) {
-            query.category = req.query.category;
-        }
-
-        // 2. Pagination 
-        const page = parseInt(req.query.page) || 1;
-        const limit = parseInt(req.query.limit) || 10;
-        const skip = (page - 1) * limit;
-
-        const notes = await Note.find(query)
-            .sort({ createdAt: -1 }) // Sorting (Rubric Requirement - 5 pts)
-            .skip(skip)
-            .limit(limit);
-
-        res.status(200).json(notes);
-    } catch (error) {
-        res.status(500).json({ message: error.message });
+    // 1. Filtering
+    if (req.query.category) {
+      query.category = req.query.category;
     }
+
+    // 2. Pagination
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+    const skip = (page - 1) * limit;
+
+    const notes = await Note.find(query)
+      .sort({ createdAt: -1 }) // Sorting (Rubric Requirement - 5 pts)
+      .skip(skip)
+      .limit(limit);
+
+    res.status(200).json(notes);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 };
 
 // Get a single note by ID
