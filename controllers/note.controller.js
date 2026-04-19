@@ -1,4 +1,3 @@
-const { options } = require('joi');
 const NoteModel = require('../models/note.model.js');
 const { noteSchema, UpdatenoteSchema } = require("../validators/note.validators.js");
 
