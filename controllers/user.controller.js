@@ -1,14 +1,10 @@
 const UserModel = require('../models/user.model.js');
-const Joi = require('joi');
+const { registerSchema, loginSchema } = require("../validators/user.validator.js");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
 const registerUser = async (req, res, next) =>{
-    const registerSchema = Joi.object({
-        name: Joi.string().min(2).required(),
-        email: Joi.string().email().required(),
-        password: Joi.string().required()
-    });
+    
 
     const {error} = registerSchema.validate(req.body);
     if(error){
@@ -34,7 +30,7 @@ const registerUser = async (req, res, next) =>{
         await user.save();
 
         return res.status(200).json({
-            message: "User registered successfuly"
+            message: "User registered successfully"
         });
     }
     catch(error){
@@ -43,11 +39,7 @@ const registerUser = async (req, res, next) =>{
 }
 
 const loginUser = async (req, res, next) =>{
-    const loginSchema = Joi.object({
-        email: Joi.string().email().required(),
-        password: Joi.string().required()
-    });
-
+    
     const {error} = loginSchema.validate(req.body);
     if(error){
         res.status(400).json({message: error.details[0].message});
