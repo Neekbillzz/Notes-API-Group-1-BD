@@ -12,6 +12,13 @@ const noteSchema = new mongoose.Schema(
       required: true,
       index: true, // Indexed for search
     },
+
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      require: true,
+    },
+
     category: {
       type: String,
       required: false,

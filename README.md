@@ -44,17 +44,18 @@ This backend provides full CRUD functionality for a Notion-style application. It
 
 5.  **Endpoints**
 
-All requests should be made to the following base URL: 
+All requests should be made to the following base URL:
 https://your-app-name.onrender.com/api
 
 ### Notes Resource
-| Method | Endpoint | Description | Query Parameters / Body |
-| :--- | :--- | :--- | :--- |
-| POST | /notes | Create a new note | Body: { title, content, category, tags } |
-| GET | /notes | Fetch all notes | Query: page, limit, search, sort |
-| GET | /notes/:id | Fetch a single note | Params: id |
-| PUT | /notes/:id | Update an existing note | Body: { title, content, category, tags } |
-| DELETE | /notes/:id | Remove a note | Params: id |
+
+| Method | Endpoint   | Description                                                                                 | Query Parameters / Body                  |
+| :----- | :--------- | :------------------------------------------------------------------------------------------ | :--------------------------------------- |
+| POST   | /notes     | Create a new note and Triggers automated task extraction if date/time keywords are detected | Body: { title, content, category, tags } |
+| GET    | /notes     | Fetch all notes                                                                             | Query: page, limit, search, sort         |
+| GET    | /notes/:id | Fetch a single note                                                                         | Params: id                               |
+| PUT    | /notes/:id | Update an existing note                                                                     | Body: { title, content, category, tags } |
+| DELETE | /notes/:id | Remove a note                                                                               | Params: id                               |
 
 ---
 
@@ -63,8 +64,40 @@ https://your-app-name.onrender.com/api
 To search for notes about "Nodejs" in the "Backend" category, with pagination:
 
     GET /api/notes?search=nodejs&category=Backend&page=1&limit=5
+
 ---
 
+## | Special Features: Automated Task Extraction
+
+- **AI-Powered Task Extraction**
+
+This API goes beyond basic note-taking by automatically identifying "action items" within your notes. When you save a note, the backend scans for temporal keywords to create separate, trackable tasks.
+
+**How it Works**
+
+1. Detection: The server parses note content for keywords like "tomorrow", "by 5pm", or "next Friday".
+
+2. Parsing: It uses a regex-based extraction utility to separate the task description from the deadline.
+
+3. Database Relation: A new document is automatically created in the Tasks collection with a reference link (ObjectId) back to the original note.
+
+**Example Logic Flow**
+
+![Extraction Screenshot](./assets/terminal-extraction.png)  
+_(Terminal Showing Debug Extraction)_
+
+The image above shows the server successfully intercepting a note and logging the extracted task details to the console.
+
+---
+
+### | Validation
+
+- **Validation:** Powered by **Joi**, ensuring data integrity with meaningful error messages for every request
+
+![Extraction Screenshot](./assets/joi.png)  
+_(Meaningful Error Messages)_
+
+---
 
 ## | API Reference & Postman Documentation
 
