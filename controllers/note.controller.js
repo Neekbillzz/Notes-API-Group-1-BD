@@ -51,9 +51,10 @@ exports.getAllNotes = async (req, res) => {
     const page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 10;
     const skip = (page - 1) * limit;
+    const sortField = req.query.sort
 
     const notes = await Note.find(query)
-      .sort({ createdAt: -1 }) // Sorting (Rubric Requirement - 5 pts)
+      .sort(sortField)
       .skip(skip)
       .limit(limit);
 
@@ -120,7 +121,7 @@ exports.searchNotes = async (req, res) => {
   const { query } = req.query;
   try {
     const results = await Note.find({
-      title: { $regex: query, $options: "i" },
+      $or: [{ title: { $regex: query, $options: "i" } }],
     });
     res.status(200).json(results);
   } catch (error) {

@@ -122,7 +122,7 @@ Supports the following query parameters:
 | :-------- | :-------------------------- | :----------------- |
 | page      | Page number for pagination  | ?page=2            |
 | limit     | Items per page              | ?limit=5           |
-| search    | Text search (title/content) | ?search=javascript |
+| search    | Text search (title/content) | search?query=javascript |
 | sort      | Field to sort by            | ?sort=-createdAt   |
 
 ![Search Filter Screenshot](./assets/search-filter.png)  
