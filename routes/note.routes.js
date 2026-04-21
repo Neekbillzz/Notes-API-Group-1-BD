@@ -9,8 +9,8 @@ const {
   searchNotes,
 } = require("../controllers/note.controller.js");
 const requireAuth = require("../middlewares/require-auth.js");
-const validatePost = require("../middlewares/validatePost.js");
-const validateUpdate = require("../middlewares/validateUpdate.js");
+const validatePost = require("../validators/validatePost.js");
+const validateUpdate = require("../validators/validateUpdate.js");
 
 const router = express.Router();
 
