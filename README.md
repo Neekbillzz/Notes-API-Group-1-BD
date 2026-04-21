@@ -101,6 +101,38 @@ _(Meaningful Error Messages)_
 
 ---
 
+## 🔐 Authentication Endpoints
+
+Before accessing the notes, you must register a user and log in to receive a **JWT Bearer Token**.
+
+| Feature | Method | Endpoint | Description |
+|:--- |:--- |:--- |:--- |
+| **User Register** | `POST` | `/api/users/register` | Create a new account with name, email, and password. |
+| **User Login** | `POST` | `/api/users/login` | Authenticates user and returns a JWT token. |
+
+### **Request Body Examples**
+
+**Register / Login:**
+
+{
+  "email": "nick@example.com",
+
+  "password": "password123"
+}
+
+### **Postman Testing Proof**
+
+Below are the successful test results for the Authentication flow. 
+
+![Search Filter Screenshot](./assets/sign-up.png)  
+_(Postman showing Sign-up)_
+
+
+![Search Filter Screenshot](./assets/login.png)  
+_(Postman showing Login)_
+
+
+
 ## | API Reference & Postman Documentation
 
 ### 1. Create a Note (POST)
