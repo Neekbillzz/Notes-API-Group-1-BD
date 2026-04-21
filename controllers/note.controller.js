@@ -51,7 +51,7 @@ exports.getAllNotes = async (req, res) => {
     const page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 10;
     const skip = (page - 1) * limit;
-    const sortField = req.query.sort
+    const sortField = req.query.sort;
 
     const notes = await Note.find(query)
       .sort(sortField)

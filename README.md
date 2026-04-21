@@ -2,7 +2,7 @@
 
 A production-ready RESTful API built with Node.js, Express, and MongoDB, designed to function as a "Second Brain" for note-taking and knowledge organization.
 
-Live URL: [https://your-app-name.onrender.com]
+Live URL: https://notes-api-group-1-bd.onrender.com/api/notes
 
 Status: ![Deployed](https://img.shields.io/badge/Status-Deployed-success) ![v1.0.0](https://img.shields.io/badge/v1.0.0-blue)
 
@@ -118,14 +118,14 @@ GET /api/notes
 
 Supports the following query parameters:
 
-| Parameter | Description                 | Example            |
-| :-------- | :-------------------------- | :----------------- |
-| page      | Page number for pagination  | ?page=2            |
-| limit     | Items per page              | ?limit=5           |
+| Parameter | Description                 | Example                 |
+| :-------- | :-------------------------- | :---------------------- |
+| page      | Page number for pagination  | ?page=2                 |
+| limit     | Items per page              | ?limit=5                |
 | search    | Text search (title/content) | search?query=javascript |
-| sort      | Field to sort by            | ?sort=-createdAt   |
+| sort      | Field to sort by            | ?sort=-createdAt        |
 
-![Search Filter Screenshot](./assets/search-filter.png)  
+![Search Filter Screenshot](./assets/query.png)  
 _(Postman showing Search/Filter results with multiple notes)_
 
 ![Pagination Screenshot](./assets/pagination.png)  
@@ -137,6 +137,9 @@ _(Postman showing Pagination logic (e.g., page 1 of 2))_
 
 GET /api/notes/:id
 
+![Get one Note Screenshot](./assets/getone-note.png)  
+_(Postman showing a 200 OK update of a get one note)_
+
 ### 4. Update Note (PUT)
 
 PUT /api/notes/:id
@@ -147,6 +150,9 @@ _(Postman showing a 200 OK update of a note's title or content)_
 ### 5. Delete Note (DELETE)
 
 DELETE /api/notes/:id
+
+![Delete Note Screenshot](./assets/delete.png)  
+_(Postman showing a successful note deletion)_
 
 ---
 
@@ -187,16 +193,16 @@ The API implements standard HTTP status codes:
 
 - ABILI NICHOLAS - Database Architecture & Documentation
 
-       https://github.com/Neekbillzz/Notes-API-Group-1-BD
+       https://github.com/Neekbillzz/Notes-API-Group-1-BD.git
 
-- JERRY - Logic Lead
+- ALAGBE OLAMIDE - Logic Lead
 
-       https://github.com/Neekbillzz/Notes-API-Group-1-BD
+       https://github.com/olamide904/Notes-API-Group-1-BD.git
 
-- SMOKEY - Quality & Security
+- OGUNSEMORE JOSHUA - Quality & Security
 
-      https://github.com/Neekbillzz/Notes-API-Group-1-BD
+      https://github.com/El-Whiz/Notes-API-Group-1-BD
 
-- ELLA - DevOps
+- EDU EMMANUELLA A. - DevOps
 
-       https://github.com/Neekbillzz/Notes-API-Group-1-BD
+       https://github.com/El-jane/Notes-API-Group-1-BD.git
